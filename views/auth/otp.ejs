@@ -1,0 +1,31 @@
+<%-include('../includes/header') %>
+</head>
+<body style="background: url(/images/white.jpg);
+background-repeat: no-repeat;
+background-size: 100% 100%;
+background-attachment: fixed;
+">
+<h1 style=" font-family:lucida handwriting;">A<span style="color: red;padding-top: 10px;font-family: Arial, Helvetica, sans-serif;">LOAN</span> CREDIT</h1>
+
+  <div class="container-fluid cont col-md-4 offset-md-4 my-5">
+    <h2 class="text-center h2">Check your Mailtrap</h2>
+    <form action="/otp" method="post">
+        <div class="form-group my-3">
+            <label for="exampleInputName">Verification Code</label>
+            <input type="number" class="form-control my-3"placeholder="Enter your 6 digits code" name="Verify">
+            <%for(let errors of error ){%>
+             
+                <small style="color:red"><%= errors%></small>
+                
+           <% }%>
+          </div>
+          <div class="text-center my-3">
+            <button type="submit" class="btn" id="play">Verify code</button>
+          </div>
+    </form>
+  </div>
+    
+
+<%-include('../includes/footer') %>
+</body>
+</html>

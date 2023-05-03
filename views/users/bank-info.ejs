@@ -1,0 +1,58 @@
+<%-include('../includes/header') %>
+</head>
+<body style="background: url(/images/white.jpg);
+background-repeat: no-repeat;
+background-size: 100% 100%;
+background-attachment: fixed;
+">
+    <section class="all">
+        <h1 style=" font-family:lucida handwriting;">A<span style="color: red;padding-top: 10px;font-family: Arial, Helvetica, sans-serif;">LOAN</span> CREDIT</h1>
+  <div class="container-fluid cont col-md-4 offset-md-4 my-5">
+    <h2 class="text-center h2">Bank Information</h2>
+    <form action="/bank" method="post">
+          <div class="form-group my-3">
+            <label for="exampleInputName"><b>Bank</b></label>
+           <select class="form-select rounded-pill" name="bank">
+            <option value=""></option>
+             <option value="single">UBA</option>
+             <option value="married">Eco Bank</option>
+             <option value="widow">First Bank</option>
+             <option value="widow">Access Bank</option>
+             <option value="widow">Jaiz Bank</option>
+             <option value="widow">Fidelity Bank</option>
+             <option value="widow">Polaris Bank</option>
+             <option value="widow">Opay</option>
+             <option value="widow">Palmpay</option>
+             <option value="widow">Union Bank</option>
+             <option value="widow">Zenith Bank</option>
+             <option value="widow">Sterling Bank</option>
+             <option value="widow">Heritage Bank</option>
+             <option value="widow">GTB Bank</option>
+             <option value="widow">Keystone Bank</option>
+             <option value="widow">FCMB Bank</option>
+             <option value="widow">others</option>
+           </select>
+           <%for(let error of InErr ){
+            if(error.path === "bank"){%>
+              <small style="color:red"><%= error.msg %></small>
+           <% }
+          }%>
+          </div>
+          <div class="form-group my-5">
+            <label for="exampleInputName"><b>Account Number</b></label>
+            <input type="number" class="form-control"placeholder="Enter your bank account(10 digits)" name="acct">
+            <%for(let error of InErr ){
+              if(error.path === "acct"){%>
+                <small style="color:red"><%= error.msg %></small>
+             <% }
+            }%>
+          </div>
+          <div class="text-center my-3">
+            <button type="submit" class="btn" id="play">Next</button>
+          </div>
+    </form>
+  </div>
+</section>
+<%-include('../includes/footer') %>
+</body>
+</html>
