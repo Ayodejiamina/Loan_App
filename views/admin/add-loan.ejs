@@ -6,21 +6,26 @@ background-size: 100% 100%;
 background-attachment: fixed;
 ">
     <section class="all">
+      <div id="all"></div>
         <h1>A<span style="color: red;padding-top: 10px;font-family: Arial, Helvetica, sans-serif;">LOAN</span> CREDIT</h1>
   <div class="container-fluid cont col-md-4 offset-md-4 my-5">
     <h2 class="text-center h2">Admin add-loan</h2>
-    <form action="/loan" method="post">
+    <form id="add-loan">
         <div class="form-group my-3">
             <label for="exampleInputName"> <b> Loan Amount</b></label>
-            <input type="text" class="form-control rounded-pill"placeholder="loan amount" name="amount">
+            <input type="number" class="form-control rounded-pill"placeholder="loan amount" name="amount" id="amount">
           </div>
           <div class="form-group my-3">
             <label for="exampleInputName"> <b>Loan Term</b> </label>
-            <input type="text" class="form-control rounded-pill"placeholder="loan term" name="term">
+            <input type="text" class="form-control rounded-pill"placeholder="loan term" name="term" id="term">
           </div>
           <div class="form-group my-3">
             <label for="exampleInputName"> <b> Duration</b></label>
-            <input type="text" class="form-control rounded-pill"placeholder="duration" name="duration">
+            <input type="number" class="form-control rounded-pill"placeholder="duration" name="duration" id="duration">
+          </div>
+          <div class="form-group my-3">
+            <label for="exampleInputName"> <b> Interest</b></label>
+            <input type="text" class="form-control rounded-pill"placeholder="intrest" name="intrest" id="intrest">
           </div>
 
           <div class="text-center my-3">
@@ -29,6 +34,42 @@ background-attachment: fixed;
     </form>
   </div>
 </section>
+
 <%-include('../includes/footer') %>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+let form = document.getElementById('add-loan')
+form.addEventListener('submit',submitAll)
+function submitAll(e){
+  e.preventDefault();
+  let amount = document.getElementById('amount').value;
+  let term = document.getElementById('term').value;
+  let duration = document.getElementById('duration').value;
+  let intrest = document.getElementById('intrest').value;
+  let formData = new FormData()
+  formData.append('amount',amount)
+  formData.append('term',term)
+  formData.append('duration',duration)
+  formData.append('intrest',intrest)
+  axios.post('/loan',formData)
+  .then(response=>{
+   if(response.data.succeed){
+    document.getElementById('all').innerHTML = `
+    <div class="alert alert-danger alert-dismissible">
+     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <strong>Success!</strong> Loan submitted successfully 
+     </div>
+    `
+    setTimeout(()=>{
+                    window.location='/dashboard'
+                    }, 3000)
+
+    
+   }
+  }).catch(err=>{
+    console.log(err)
+  })
+}
+</script>
 </body>
 </html>

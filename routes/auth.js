@@ -15,5 +15,6 @@ router.post('/login',[
 ],authController.postLogin)
 router.get('/otp',authController.otp)
 router.post('/otp',authController.postOtp)
+router.post('/logout',authController.logout)
 
 module.exports = router

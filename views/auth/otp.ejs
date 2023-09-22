@@ -5,25 +5,32 @@ background-repeat: no-repeat;
 background-size: 100% 100%;
 background-attachment: fixed;
 ">
-<h1 style=" font-family:lucida handwriting;">A<span style="color: red;padding-top: 10px;font-family: Arial, Helvetica, sans-serif;">LOAN</span> CREDIT</h1>
+<%-include('../includes/nav.ejs') %>
 
-  <div class="container-fluid cont col-md-4 offset-md-4 my-5">
-    <h2 class="text-center h2">Check your Mailtrap</h2>
-    <form action="/otp" method="post">
-        <div class="form-group my-3">
-            <label for="exampleInputName">Verification Code</label>
-            <input type="number" class="form-control my-3"placeholder="Enter your 6 digits code" name="Verify">
-            <%for(let errors of error ){%>
-             
-                <small style="color:red"><%= errors%></small>
+<div class="container-fluid" style="margin-top: 150px;">
+  <div class="row m-3">
+    <div class="cont col-md-4 offset-md-4">
+      <h2 class="text-center h2">Check your Mailtrap</h2>
+       <form action="/otp" method="post">
+           <div class="form-group my-3">
+               <label for="exampleInputName">Verification Code</label>
+               <input type="number" class="form-control my-3"placeholder="Enter your 6 digits code" name="Verify">
+               <%for(let errors of error ){%>
                 
-           <% }%>
-          </div>
-          <div class="text-center my-3">
-            <button type="submit" class="btn" id="play">Verify code</button>
-          </div>
-    </form>
+                   <small style="color:red"><%= errors%></small>
+                   
+              <% }%>
+             </div>
+             <div class="text-center my-3">
+               <button type="submit" class="btn" id="play">Verify code</button>
+               <button type="submit" class="btn" id="play">Resend code</button>
+
+             </div>
+       </form>
+     </div>
   </div>
+
+</div>
     
 
 <%-include('../includes/footer') %>

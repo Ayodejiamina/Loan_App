@@ -1,0 +1,22 @@
+<%- include('../includes/header.ejs')%>
+</head>
+<body>
+<div class="container-fluid err">
+  <div>
+    <img src="/images/02_error_animation_500.gif" alt="">
+  </div>
+  <div class="buts"><button class="btn btn-outline-secondary mt-3" id="btnBack">Retry!!</button></div>
+</div>
+</div>
+    
+</div>
+
+<%- include('../includes/footer.ejs')%>
+<script>
+    let btn = document.getElementById('btnBack')
+    btn.addEventListener('click',()=>{
+        window.history.back()
+    })
+</script>
+</body>
+</html>

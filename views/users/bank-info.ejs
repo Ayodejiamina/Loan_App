@@ -7,49 +7,285 @@ background-attachment: fixed;
 ">
     <section class="all">
         <h1 style=" font-family:lucida handwriting;">A<span style="color: red;padding-top: 10px;font-family: Arial, Helvetica, sans-serif;">LOAN</span> CREDIT</h1>
-  <div class="container-fluid cont col-md-4 offset-md-4 my-5">
-    <h2 class="text-center h2">Bank Information</h2>
-    <form action="/bank" method="post">
-          <div class="form-group my-3">
-            <label for="exampleInputName"><b>Bank</b></label>
-           <select class="form-select rounded-pill" name="bank">
-            <option value=""></option>
-             <option value="single">UBA</option>
-             <option value="married">Eco Bank</option>
-             <option value="widow">First Bank</option>
-             <option value="widow">Access Bank</option>
-             <option value="widow">Jaiz Bank</option>
-             <option value="widow">Fidelity Bank</option>
-             <option value="widow">Polaris Bank</option>
-             <option value="widow">Opay</option>
-             <option value="widow">Palmpay</option>
-             <option value="widow">Union Bank</option>
-             <option value="widow">Zenith Bank</option>
-             <option value="widow">Sterling Bank</option>
-             <option value="widow">Heritage Bank</option>
-             <option value="widow">GTB Bank</option>
-             <option value="widow">Keystone Bank</option>
-             <option value="widow">FCMB Bank</option>
-             <option value="widow">others</option>
-           </select>
-           <%for(let error of InErr ){
-            if(error.path === "bank"){%>
-              <small style="color:red"><%= error.msg %></small>
-           <% }
-          }%>
-          </div>
-          <div class="form-group my-5">
-            <label for="exampleInputName"><b>Account Number</b></label>
-            <input type="number" class="form-control"placeholder="Enter your bank account(10 digits)" name="acct">
-            <%for(let error of InErr ){
-              if(error.path === "acct"){%>
-                <small style="color:red"><%= error.msg %></small>
-             <% }
-            }%>
-          </div>
-          <div class="text-center my-3">
-            <button type="submit" class="btn" id="play">Next</button>
-          </div>
+          <div class=" container-fluid">
+             <form action="/information" method="post"  enctype="multipart/form-data">
+             <div class="row justify-content-center mx-3">
+               
+                <!-- <div class="col-lg-3 offset-1 col-sm-10 col-md-8 cont my-4">
+                  <h2 class="text-center h2 my-3">Basic Information</h2>
+                <div class="form-group my-3">
+                      <label for="exampleInputName"><b>First Name</b></label>
+                      <input type="text" class="form-control rounded-pill"placeholder="first name" name="fname">
+                      <%for(let error of InErr ){
+                        if(error.path === "fname"){%>
+                          <small style="color:red"><%= error.msg %></small>
+                       <% }
+                      }%>
+                    </div>
+                <div class="form-group my-3">
+                      <label for="exampleInputName"><b>Last Name</b></label>
+                      <input type="text" class="form-control rounded-pill"placeholder="last name" name="lname">
+                      <%for(let error of InErr ){
+                        if(error.path === "lname"){%>
+                          <small style="color:red"><%= error.msg %></small>
+                       <% }
+                      }%>
+                    </div>
+                <div class="form-group my-3">
+                      <label for="exampleInputName"><b>Email Address</b></label>
+                      <input type="text" class="form-control rounded-pill"placeholder="email" name="email">
+                      <%for(let error of InErr ){
+                        if(error.path === "email"){%>
+                          <small style="color:red"><%= error.msg %></small>
+                       <% }
+                      }%>
+                    </div>
+               <div class="form-group my-3">
+                      <label for="exampleInputName"><b>Phone Number</b></label>
+                      <input type="text" class="form-control rounded-pill"placeholder="phone" name="phone">
+                      <%for(let error of InErr ){
+                        if(error.path === "phone"){%>
+                          <small style="color:red"><%= error.msg %></small>
+                       <% }
+                      }%>
+                    </div>
+                  <div class="form-group my-3">
+                      <label for="exampleInputName"><b>Gender</b></label>
+                      <input type="radio" value="Male" name="gender">Male 
+                      <input type="radio" value="Female" name="gender">Female<br>
+                      <%for(let error of InErr ){
+                        if(error.path === "gender"){%>
+                          <small style="color:red"><%= error.msg %></small>
+                       <% }
+                      }%>
+                    </div> -->
+                 <!-- <div class="form-group my-3">
+                      <label for="exampleInputName"><b>DOB</b></label>
+                      <input type="text" class="form-control rounded-pill"placeholder="" name="dob">
+                      <%for(let error of InErr ){
+                        if(error.path === "dob"){%>
+                          <small style="color:red"><%= error.msg %></small>
+                       <% }
+                      }%>
+                    </div> -->
+                <!-- <div class="form-group my-3">
+                      <label for="exampleInputName"><b>BVN</b></label>
+                      <input type="text" class="form-control rounded-pill"placeholder="full name" name="bvn">
+                      <%for(let error of InErr ){
+                        if(error.path === "bvn"){%>
+                          <small style="color:red"><%= error.msg %></small>
+                       <% }
+                      }%>
+                    </div>
+                  -->
+              <div class="col-lg-3 offset-1 col-sm-10 col-md-8 cont my-3">
+                <h2 class="text-center h2 my-3">Personal Information</h2>
+                <div class="form-group my-3">
+                  <label for="exampleInputName"><b>DOB</b></label>
+                  <input type="date" class="form-control rounded-pill"placeholder="" name="dob">
+                  <%for(let error of InErr ){
+                    if(error.path === "dob"){%>
+                      <small style="color:red"><%= error.msg %></small>
+                   <% }
+                  }%>
+                </div>
+                <div class="form-group my-3">
+                  <label for="exampleInputName"><b>Gender</b></label>
+                  <input type="radio" value="Male" name="gender">Male 
+                  <input type="radio" value="Female" name="gender">Female<br>
+                  <%for(let error of InErr ){
+                    if(error.path === "gender"){%>
+                      <small style="color:red"><%= error.msg %></small>
+                   <% }
+                  }%>
+                </div>
+                  <div class="form-group my-3">
+                    <label for="exampleInputName"><b>Education Level </b></label>
+                   <select class="form-select rounded-pill" name="educate">
+                    <option value=""></option>
+                     <option value="ond">OND</option>
+                     <option value="hnd">HND</option>
+                     <option value="bachelor">Bachelors</option>
+                     <option value="others">others</option>
+                   </select>
+                   <%for(let error of InErr ){
+                    if(error.path === "educate"){%>
+                      <small style="color:red"><%= error.msg %></small>
+                   <% }
+                  }%>
+                  </div>
+                  <div class="form-group my-3">
+                    <label for="exampleInputName"><b>Working Pattern </b></label>
+                   <select class="form-select rounded-pill" name="pat">
+                    <option value=""></option>
+                     <option value="daily">Daily</option>
+                     <option value="partime">Partime</option>
+                     <option value="others">others</option>
+                   </select>
+                   <%for(let error of InErr ){
+                    if(error.path === "pat"){%>
+                      <small style="color:red"><%= error.msg %></small>
+                   <% }
+                  }%>
+                  </div>
+                  <div class="form-group my-3">
+                    <label for="exampleInputName"><b>Housing Status </b></label>
+                   <select class="form-select  rounded-pill" name="houses">
+                    <option value=""></option>
+                     <option value="landlord">Landlord</option>
+                     <option value="tenants">Tenants</option>
+                     <option value="others">others</option>
+                   </select>
+                   <%for(let error of InErr ){
+                    if(error.path === "houses"){%>
+                      <small style="color:red"><%= error.msg %></small>
+                   <% }
+                  }%>
+                  </div>
+                  <div class="form-group my-3">
+                    <label for="exampleInputName"> <b>Home Address </b></label>
+                    <input type="text" class="form-control rounded-pill"placeholder="home address" name="add">
+                    <%for(let error of InErr ){
+                      if(error.path === "add"){%>
+                        <small style="color:red"><%= error.msg %></small>
+                     <% }
+                    }%>
+                  </div>
+                  <div class="form-group">
+                    <label for="">File input</label>
+                        <input type="file" name="Image" class="form-control rounded-pill">
+                  </div>
+                  <!-- <div class="form-group">
+                    <label for="">File input</label>
+                        <input type="file" name="Image" class="form-control rounded-pill">
+                        <%for(let error of InErr ){
+                          if(error.path === "Image"){%>
+                            <small style="color:red"><%= error.msg %></small>
+                         <% }
+                        }%>
+                  </div> -->
+                </div> 
+                <div class="col-lg-3 offset-1 col-sm-10 col-md-8 cont my-3">
+                  <h2 class="text-center h2 my-3">Emergency Contact</h2>
+          
+                  <div style="margin-top: 10px;">
+                    <div  style="border-bottom: 2px solid red;margin-top: 10px" class="my-3"> <strong>1st Emergency Information</strong></div>
+                   
+                    <div class="form-group my-3">
+                      <label for="exampleInputName"><b>Full Name</b></label>
+                      <input type="text" class="form-control rounded-pill"placeholder="full name" name="firstname">
+                      <%for(let error of InErr ){
+                        if(error.path === "firstname"){%>
+                          <small style="color:red"><%= error.msg %></small>
+                       <% }
+                      }%>
+                    </div>
+                    <div class="form-group my-3">
+                      <label for="exampleInputName"><b>Relationship</b></label>
+                      <input type="text" class="form-control rounded-pill"placeholder="relationship" name="rela1">
+                      <%for(let error of InErr ){
+                        if(error.path === "rela1"){%>
+                          <small style="color:red"><%= error.msg %></small>
+                       <% }
+                      }%>
+                    </div>
+                    <div class="form-group my-3">
+                      <label for="exampleInputName"><b>Phone Number</b></label>
+                      <input type="number" class="form-control rounded-pill"placeholder="phone number" name="phon1">
+                      <%for(let error of InErr ){
+                        if(error.path === "phon1"){%>
+                          <small style="color:red"><%= error.msg %></small>
+                       <% }
+                      }%>
+                    </div>
+                  </div>
+                    <div>
+                     <div  style="border-bottom: 2px solid red;margin-top: 10px" class="my-3"> <strong>2nd Emergency Information</strong></div>
+                    <div class="form-group my-3">
+                      <label for="exampleInputName"><b>Full Name</b></label>
+                      <input type="text" class="form-control rounded-pill"placeholder="full name" name="secname">
+                      <%for(let error of InErr ){
+                        if(error.path === "secname"){%>
+                          <small style="color:red"><%= error.msg %></small>
+                       <% }
+                      }%>
+                    </div>
+                    <div class="form-group my-3">
+                      <label for="exampleInputName"><b>Relationship</b></label>
+                      <input type="text" class="form-control rounded-pill"placeholder="relationship" name="rela2">
+                      <%for(let error of InErr ){
+                        if(error.path === "rela2"){%>
+                          <small style="color:red"><%= error.msg %></small>
+                       <% }
+                      }%>
+                    </div>
+                    <div class="form-group my-3">
+                      <label for="exampleInputName"><b>Phone Number</b></label>
+                      <input type="number" class="form-control rounded-pill"placeholder="phone number" name="phon2">
+                      <%for(let error of InErr ){
+                        if(error.path === "phon2"){%>
+                          <small style="color:red"><%= error.msg %></small>
+                       <% }
+                      }%>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-3 offset-1 col-sm-10 col-md-8 cont my-4">
+                  <h2 class="text-center h2">Bank Information</h2>
+                  <div class="form-group my-3">
+                    <label for="exampleInputName"><b>BVN</b></label>
+                    <input type="text" class="form-control rounded-pill"placeholder="Bank Verification Number" name="bvn">
+                    <%for(let error of InErr ){
+                      if(error.path === "bvn"){%>
+                        <small style="color:red"><%= error.msg %></small>
+                     <% }
+                    }%>
+                  </div>
+                      <div class="form-group my-3">
+                      <label for="exampleInputName"><b>Bank</b></label>
+                      <select class="form-select rounded-pill" name="bank">
+                      <option value=""></option>
+                      <option value="uba">UBA</option>
+                      <option value="ecobank">Eco Bank</option>
+                      <option value="firstbank">First Bank</option>
+                      <option value="accessbank">Access Bank</option>
+                      <option value="jaizbank">Jaiz Bank</option>
+                      <option value="fidelitybank">Fidelity Bank</option>
+                      <option value="polaris">Polaris Bank</option>
+                      <option value="opay">Opay</option>
+                      <option value="Palmpay">Palmpay</option>
+                      <option value="unionbank">Union Bank</option>
+                      <option value="zenith">Zenith Bank</option>
+                      <option value="sterling">Sterling Bank</option>
+                      <option value="heritage">Heritage Bank</option>
+                      <option value="gtb">GTB Bank</option>
+                      <option value="keystone">Keystone Bank</option>
+                      <option value="fcmb">FCMB Bank</option>
+                      <option value="others">others</option>
+                    </select>
+                    <%for(let error of InErr ){
+                      if(error.path === "bank"){%>
+                        <small style="color:red"><%= error.msg %></small>
+                    <% }
+                    }%>
+                    </div>
+                <div class="form-group my-5">
+                      <label for="exampleInputName"><b>Account Number</b></label>
+                      <input type="number" class="form-control"placeholder="Enter your bank account(10 digits)" name="acct">
+                      <%for(let error of InErr ){
+                        if(error.path === "acct"){%>
+                          <small style="color:red"><%= error.msg %></small>
+                      <% }
+                      }%>
+                </div>
+                <div class="text-center my-3">
+                  <button type="submit" class="btn w-75" id="play">Submit</button>
+                </div>
+                </div>
+
+        </div>
+        
     </form>
   </div>
 </section>

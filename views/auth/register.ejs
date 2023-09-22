@@ -1,59 +1,78 @@
  <%-include('../includes/header') %>
 </head>
-<body style="background: url(/images/white.jpg);
-background-repeat: no-repeat;
-background-size: 100% 100%;
-background-attachment: fixed;
-">
- <h1 style=" font-family:lucida handwriting;">A<span style="color: red;padding-top: 10px;font-family: Arial, Helvetica, sans-serif;">LOAN</span> CREDIT</h1>
 
-  <div class="container-fluid cont col-md-4 offset-md-4 my-5">
-    <h2 class="text-center h2">Register</h2>
-    <form action="/register" method="post">
-      <!-- <%= JSON.stringify(errorMsg)%> -->
-        <div class="form-group my-3">
-            <label for="exampleInputName">Name</label>
-            <input type="text" class="form-control"placeholder="Enter name" name="name">
-            <%for(let error of errorMsg ){
-              if(error.path === "name"){%>
-                <small style="color:red"><%= error.msg %></small>
-             <% }
-            }%>
+<!-- <%-include('../includes/nav.ejs') %> -->
+  <div class="container" style="margin-top:30px;">
+    <div class="row g-0">
+      <div class="cont col-lg-6 mb-5 mt-5 p-5">
+        <h2 class="text-center h2">Register</h2>
+        <form action="/register" method="post">
+          <!-- <%= JSON.stringify(errorMsg)%> -->
+            <div class="form-group my-2">
+                <label for="exampleInputName">Name</label>
+                <input type="text" class="form-control"placeholder="Enter name" name="name">
+                <%for(let error of errorMsg ){
+                  if(error.path === "name"){%>
+                    <small style="color:red"><%= error.msg %></small>
+                 <% }
+                }%>
+         
+              </div>
+              <div class="form-group my-2">
+                <label for="exampleInputName">Email</label>
+                <input type="email" class="form-control"placeholder="Enter email" name="email">
+                <%for(let error of errorMsg ){
+                  if(error.path === "email"){%>
+                    <small style="color:red"><%= error.msg %></small>
+                 <% }
+                }%>
+              </div>
+              <div class="form-group my-2">
+                <label for="exampleInputName">Phone Number</label>
+                <input type="number" class="form-control"placeholder="Enter Phone" name="phone">
+                <%for(let error of errorMsg ){
+                  if(error.path === "phone"){%>
+                    <small style="color:red"><%= error.msg %></small>
+                 <% }
+                }%>
+              </div>
+              <div class="form-group my-2">
+                <label for="exampleInputName">Password</label>
+                <i class="fas fa-eye" id="show"></i>
+                <input type="password" class="form-control"placeholder="Enter name" name="password" id="pawd">
+                <%for(let error of errorMsg ){
+                  if(error.path === "password"){%>
+                    <small style="color:red"><%= error.msg %></small>
+                 <% }
+                }%>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"/>
+                <label class="form-check-label" for="flexCheckChecked">Remember Me</label>
+              </div>
+             <div class="text-center"><small >Subscribe to our</small><small style="color: red;"> newsletter</small></div>
+             
+              <div class="text-center my-3">
+                <button type="submit" class="btn w-75" id="play">Sign Up</button>
+              </div>
+        </form>
+      </div>
+      <div class="col-lg-6 wave">
+      <img src="/images/user.webp" alt="">
+      </div>
      
-          </div>
-          <div class="form-group my-3">
-            <label for="exampleInputName">Email</label>
-            <input type="email" class="form-control"placeholder="Enter email" name="email">
-            <%for(let error of errorMsg ){
-              if(error.path === "email"){%>
-                <small style="color:red"><%= error.msg %></small>
-             <% }
-            }%>
-          </div>
-          <div class="form-group my-3">
-            <label for="exampleInputName">Phone Number</label>
-            <input type="number" class="form-control"placeholder="Enter Phone" name="phone">
-            <%for(let error of errorMsg ){
-              if(error.path === "phone"){%>
-                <small style="color:red"><%= error.msg %></small>
-             <% }
-            }%>
-          </div>
-          <div class="form-group my-3">
-            <label for="exampleInputName">Password</label>
-            <i class="fas fa-eye" id="show"></i>
-            <input type="password" class="form-control"placeholder="Enter name" name="password" id="pawd">
-            <%for(let error of errorMsg ){
-              if(error.path === "password"){%>
-                <small style="color:red"><%= error.msg %></small>
-             <% }
-            }%>
-          </div>
-          <div class="text-center my-3">
-            <button type="submit" class="btn" id="play">Send Verification Code</button>
-          </div>
-    </form>
-  </div>
+    </div>
+   
+ </div>
+
+
+
+
+
+
+
+
+
   <script>
     let icon = document.getElementById('show')
     let pwd = document.getElementById('pawd')

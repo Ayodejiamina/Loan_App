@@ -19,7 +19,7 @@ const userTable = sequelize.define('user',{
   phone:{
     type: Sequelize.STRING,
     allowNull:false,
-  }, 
+  },  
   password:{
     type: Sequelize.STRING,
     allowNull:false,

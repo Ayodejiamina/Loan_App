@@ -9,22 +9,25 @@ background-attachment: fixed;
         <h1>A<span style="color: red;padding-top: 10px;font-family: Arial, Helvetica, sans-serif;">LOAN</span> CREDIT</h1>
   <div class="container-fluid cont col-md-4 offset-md-4 my-5">
     <h2 class="text-center h2">Admin update-add-loan</h2>
-    <form action="/upadateloan" method="post">
+    <form action="/update" method="post">
         <div class="form-group my-3">
-           
-            <input type="hidden" class="form-control rounded-pill"placeholder="loan amount" name="id">
+            <input type="text" class="form-control rounded-pill" name="id" value="<%=update.id %>">
           </div>
         <div class="form-group my-3">
             <label for="exampleInputName"> <b> Loan Ammount</b></label>
-            <input type="text" class="form-control rounded-pill"placeholder="loan amount" name="amount">
+            <input type="text" class="form-control rounded-pill" name="amount" value="<%=update.loanAmount %>">
           </div>
           <div class="form-group my-3">
             <label for="exampleInputName"> <b>Loan Term</b> </label>
-            <input type="text" class="form-control rounded-pill"placeholder="loan term" name="term">
+            <input type="text" class="form-control rounded-pill" name="term" value="<%=update.loanTerm %>">
           </div>
           <div class="form-group my-3">
             <label for="exampleInputName"> <b> Duration</b></label>
-            <input type="text" class="form-control rounded-pill"placeholder="duration" name="duration">
+            <input type="text" class="form-control rounded-pill" value="<%=update.duration %>" name="duration">
+          </div>
+          <div class="form-group my-3">
+            <label for="exampleInputName"> <b> Intrest</b></label>
+            <input type="text" class="form-control rounded-pill" value="<%=update.intrest %>" name="intrest">
           </div>
 
           <div class="text-center my-3">

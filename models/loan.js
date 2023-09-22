@@ -17,7 +17,7 @@ const userTable = sequelize.define('loan',{
         allowNull:false,
       },
       duration:{
-        type: Sequelize.STRING(80),
+        type: Sequelize.INTEGER,
         allowNull:false,
       },
       intrest:{

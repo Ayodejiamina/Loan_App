@@ -1,0 +1,40 @@
+<%-include('includes/header') %>
+</head>
+<body style="background: url(/images/white.jpg);
+background-repeat: no-repeat;
+background-size: 100% 100%;
+background-attachment: fixed;
+">
+    <section class="all">
+      <div id="all"></div>
+        <h1>A<span style="color: red;padding-top: 10px;font-family: Arial, Helvetica, sans-serif;">LOAN</span> CREDIT</h1>
+        <% if(!pay){%>
+      <h1 class="text-center">No Outstanding Loan!!!</h1>
+       <% }else if(pay.length > 0){
+        for(let pays of pay){  %>
+      <div class="container-fluid cont col-md-4 offset-md-4 my-5">
+     <h2 class="text-center h2"> Payment Form</h2> 
+      <form method="post" action="/payment">
+        <div class="form-group my-3">
+            <label for="exampleInputName"> <b>Email</b></label>
+            <input type="email" class="form-control rounded-pill"placeholder="email" name="email"  value="<%=pays.ema %>">
+          </div>
+          <div class="form-group my-3">
+            <label for="exampleInputName"> <b> Loan Amount</b> </label>
+            <input type="number" class="form-control rounded-pill"placeholder="loan amount" name="amount"  value="<%=pays.amt %>">
+          </div>
+          
+
+          <div class="text-center my-3">
+            <button type="submit" class="btn" id="play">Activate</button>
+          </div>
+    </form>
+  </div>
+  <% }
+ }%>
+</section>
+
+<%-include('includes/footer') %>
+    
+</body>
+</html>
